@@ -1,0 +1,103 @@
+{
+  "env": {
+		"browser": true,
+		"es6": true,
+		"es2017": true
+  },
+  "extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:@typescript-eslint/recommended-requiring-type-checking",
+		"airbnb"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"project": "tsconfig.json",
+		"tsconfigRootDir": "."
+	},
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+		"camelcase": "off",
+		"@typescript-eslint/camelcase": [
+			"error",
+			{
+				"ignoreDestructuring": true,
+				"properties": "never"
+			}
+		],
+		"arrow-body-style": "warn",
+		"semi": [
+			"error",
+			"never"
+		],
+		"class-methods-use-this": 0,
+		"import/extensions": 0,
+		"import/no-extraneous-dependencies": 0,
+		"import/prefer-default-export": 0,
+		"import/no-unresolved": 0,
+		"import/no-named-as-default": 0,
+		"react/jsx-filename-extension": [
+			0,
+			[
+				".js",
+				".jsx"
+			]
+		],
+		"react/destructuring-assignment": 0,
+		"object-curly-newline": 0,
+		"react/prop-types": 0,
+		"no-underscore-dangle": ["warn", { "allow": ["_destroy"] }],
+		"no-non-null-assertion": "off",
+		"strictNullChecks": 0,
+		"operator-linebreak": [
+			"error",
+			"before",
+			{
+				"overrides": {
+					"&&": "after"
+				}
+			}
+		],
+		"jsx-quotes": [
+			"error",
+			"prefer-single"
+		],
+		"jsx-a11y/mouse-events-have-key-events": "warn",
+		"jsx-a11y/click-events-have-key-events": "warn",
+		"jsx-a11y/label-has-associated-control": "warn",
+		"jsx-a11y/label-has-for": [
+			"error",
+			{
+				"required": {
+					"some": [
+						"nesting",
+						"id"
+					]
+				}
+			}
+		],
+		"react/jsx-wrap-multilines": [
+			"error",
+			{
+				"logical": "ignore"
+			}
+		],
+		"react/jsx-props-no-spreading": "off",
+		"@typescript-eslint/interface-name-prefix": [
+			"error",
+			{ 
+				"prefixWithI": "always" 
+			}
+		],
+		"@typescript-eslint/no-empty-function": "off",
+		"@typescript-eslint/no-explicit-any": "off",
+		"@typescript-eslint/no-unused-vars": ["error", { "ignoreRestSiblings": true }],
+		"react/jsx-one-expression-per-line": "off",
+		"react/jsx-curly-newline": "off",
+		"linebreak-style": "off",
+		"@typescript-eslint/unbound-method": "off",
+		"@typescript-eslint/explicit-function-return-type": "off",
+		"consistent-return": "off"
+	}
+}
