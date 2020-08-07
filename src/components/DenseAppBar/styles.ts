@@ -7,4 +7,8 @@ export const useStyles = makeStyles((theme: Theme) => createStyles({
   menuButton: {
     marginRight: theme.spacing(2),
   },
+  toolbar: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
 }))

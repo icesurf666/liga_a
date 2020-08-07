@@ -44,3 +44,8 @@ declare interface IValidationError {
   message: string;
   errors: IApiErrors;
 }
+
+declare interface IThemeContext {
+  darkMode: boolean;
+  setDarkMode: (val: boolean) => void;
+}
