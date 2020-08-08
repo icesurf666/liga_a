@@ -10,8 +10,9 @@ import fetchPosts from 'api/fetchPosts'
 import { TextField } from '@material-ui/core'
 import { PostItem, BigLoader } from 'components'
 import Pagination from '@material-ui/lab/Pagination'
-import PostWrap from './components/PostWrap'
+import isEmpty from 'lodash/isEmpty'
 import PaginationWrap from './components/PaginationWrap'
+import PostWrap from './components/PostWrap'
 
 const Posts: React.FC = () => {
   const [search, setSearch] = useState('')
@@ -33,8 +34,10 @@ const Posts: React.FC = () => {
 
   const lastPost = currentPage * perPage
   const firstPost = lastPost - perPage
-  const currentPosts
-    = filteredPosts && filteredPosts.slice(firstPost, lastPost)
+  
+  const currentPosts = isEmpty(search) 
+  ? (filteredPosts && filteredPosts.slice(firstPost, lastPost)) 
+  : filteredPosts
 
   const handlePaginate = useCallback((event: any, value: number) => {
     setCurrentPage(value)
@@ -54,11 +57,11 @@ const Posts: React.FC = () => {
             <PostItem post={post} />
           </PostWrap>
         ))}
-      {filteredPosts && (
+      {filteredPosts && isEmpty(search) && (
         <PaginationWrap>
           <Pagination
             page={currentPage}
-            count={filteredPosts.length / perPage}
+            count={Math.ceil(filteredPosts.length / perPage)}
             color='primary'
             onChange={handlePaginate}
           />
